@@ -52,7 +52,8 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     # Install Homebrew
     echo "Installing Homebrew"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
+    brew update
+    brew upgrade --all
 
     clear
     echo -e "${RED}Install NodeJS? ${NC}[y/N]"
@@ -73,12 +74,7 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
       nvm install node
       nvm use node
 
-      npm install -g coffee-script
-      npm install -g grunt-cli
-      npm install -g gulp
-      npm install -g bower
-      npm install -g jshint
-      npm install -g less
+      npm install -g typescript
 
     fi
 
@@ -100,6 +96,7 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     then
       # Install Python
       brew install python
+      brew install python3
     fi
 
     clear
@@ -151,8 +148,7 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
       java \
       eclipse-ide \
       eclipse-java \
-      android-studio \
-      intellij-idea-ce
+      android-studio
 
       brew install android-sdk
     fi
@@ -179,11 +175,19 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     clear
     # Install Homebrew Apps
     echo "Installing Homebrew Command Line Tools"
+    
+    brew cask install \
+    virtualbox \
+    docker
+    
     brew install \
     tree \
     wget \
     ack \
-    heroku-toolbelt
+    heroku-toolbelt \
+    bash-completion \
+    kubectl \
+    minikube
 
     # Install EMacs
     echo "Installing EMacs"
@@ -198,15 +202,14 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     coderunner \
     gitter \
     github-desktop \
-    atom \
+    visual-studio-code \
     gitkraken \
     mamp \
     macdown \
     google-drive \
     iterm2 \
-    sublime-text \
-    virtualbox \
-    scratch
+    scratch \
+    slack
 
     echo "Cleaning Up Cask Files"
     brew cask cleanup
