@@ -11,6 +11,21 @@ sudo -v
 # Keep Sudo Until Script is finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+# Install Homebrew
+echo "Installing Homebrew"
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+brew update
+brew upgrade --all
+brew install mas
+    
+# Install Apps
+    
+mas install 497799835 # XCode
+mas install 1278508951 # Trello
+mas install 946399090 # Telegram
+mas install 1147396723 # WhatsApp
+xcode-select --install
+
 # Check if OSX Command line tools are installed
 if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     test -d "${xpath}" && test -x "${xpath}" ; then
@@ -49,13 +64,8 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     # Install Applications                                                        #
     ###############################################################################
 
-    # Install Homebrew
-    echo "Installing Homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    brew update
-    brew upgrade --all
-
     clear
+    
     echo -e "${RED}Install NodeJS? ${NC}[y/N]"
     read -n 1 -r
     echo    # (optional) move to a new line
@@ -97,6 +107,9 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
       # Install Python
       brew install python
       brew install python3
+      sudo easy_install pip
+      sudo pip install --upgrade pip
+      sudo pip install virtualenv
     fi
 
     clear
@@ -184,10 +197,10 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     tree \
     wget \
     ack \
-    heroku-toolbelt \
     bash-completion \
     kubectl \
-    minikube
+    minikube \
+    git
 
     # Install EMacs
     echo "Installing EMacs"
@@ -199,17 +212,18 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     echo "Installing Apps"
     brew cask install \
     google-chrome \
-    coderunner \
-    gitter \
     github-desktop \
     visual-studio-code \
     gitkraken \
     mamp \
-    macdown \
+    typora \
     google-drive \
     iterm2 \
-    scratch \
-    slack
+    notion \
+    postman \
+    spotify \
+    slack \
+    google-cloud-sdk
 
     echo "Cleaning Up Cask Files"
     brew cask cleanup
