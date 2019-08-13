@@ -224,6 +224,7 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     postman \
     spotify \
     slack \
+    clickup \
     google-cloud-sdk
 
     echo "Cleaning Up Cask Files"
