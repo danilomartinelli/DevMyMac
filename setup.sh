@@ -220,7 +220,6 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     typora \
     google-drive \
     iterm2 \
-    notion \
     postman \
     spotify \
     slack \
