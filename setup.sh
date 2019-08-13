@@ -74,7 +74,7 @@ if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
     then
       # Install Nodejs
       echo "Installing NVM"
-      curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
+      curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
 
       export NVM_DIR="/Users/${id -un}/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm so we dont have to reboot the terminal
