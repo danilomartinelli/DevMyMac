@@ -25,6 +25,7 @@ mas install 1278508951 # Trello
 mas install 946399090 # Telegram
 mas install 1147396723 # WhatsApp
 xcode-select --install
+softwareupdate --install -a
 
 # Check if OSX Command line tools are installed
 if type xcode-select >&- && xpath=$( xcode-select --print-path ) &&
